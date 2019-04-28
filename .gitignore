@@ -11,3 +11,5 @@ build/
 # Win builds temp directory
 win-builds/
 win-builds-32/
+
+win-builds-patch-32/
