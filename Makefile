@@ -188,7 +188,7 @@ WINDRES    ?= windres
 
 -include custom.mk
 
-all: tibsun.exe dtagame.exe tigame.exe togame.exe singleplayer.exe tsclientgame.exe
+all: tibsun.exe dtagame.exe tigame.exe togame.exe singleplayer.exe tsclientgame.exe strikeforce.exe
 
 clean:
 	$(RM) $(OUTPUT) $(COMMON_OBJS)
@@ -259,6 +259,17 @@ src/mods/tsclient/res/res.o: src/mods/tsclient/res/res.rc
 
 tsclientgame.exe: $(LDS) $(INPUT) $(TSCLIENT_OBJS)
 	$(LD) $(LDFLAGS) -T $(LDS) -o $@ $(TSCLIENT_OBJS)
+	$(PETOOL) setdd $@ 1 $(IMPORTS) || ($(RM) $@ && exit 1)
+	$(PETOOL) patch $@ || ($(RM) $@ && exit 1)
+	$(STRIP) -R .patch $@ || ($(RM) $@ && exit 1)
+	$(PETOOL) dump $@
+
+include src/mods/strikeforce/strikeforce.mk
+src/mods/strikeforce/res/res.o: src/mods/strikeforce/res/res.rc
+	$(WINDRES) $(WINDRES_FLAGS) -Isrc/mods/strikeforce/res/ -Ires/  $< $@
+
+strikeforce.exe: $(LDS) $(INPUT) $(STRIKEFORCE_OBJS)
+	$(LD) $(LDFLAGS) -T $(LDS) -o $@ $(STRIKEFORCE_OBJS)
 	$(PETOOL) setdd $@ 1 $(IMPORTS) || ($(RM) $@ && exit 1)
 	$(PETOOL) patch $@ || ($(RM) $@ && exit 1)
 	$(STRIP) -R .patch $@ || ($(RM) $@ && exit 1)
