@@ -3,5 +3,5 @@ REM
 REM cnc-patch environment config
 REM
 set PATH=win-builds-patch-32\bin
-gmake clean strikeforce.exe
+gmake clean sfgame.exe
 pause

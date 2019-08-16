@@ -4,7 +4,7 @@
 
 sstring str_DTALong, "Tiberian Sun: Strikeforce"
 sstring str_DTAGameWindow, "Tiberian Sun: Strikeforce (Game Window)"
-sstring str_LanguageDLLNotFound, "Language.dll not found, please start TSSF.exe and click Save in the Options menu."
+sstring str_LanguageDLLNotFound, "Language.dll not found, please start SFLauncher.exe and click Save in the Options menu."
 sstring str_DTAAlreadyRunning, "Tiberian Sun: Strikeforce is already running!"
 sstring str_MPMapsINI, "MPMAPS.INI"
 sstring str_MoviesMIX, "MOVIES.MIX"
