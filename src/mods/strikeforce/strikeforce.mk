@@ -139,3 +139,6 @@ STRIKEFORCE_OBJS = \
                     src/mods/ai_target_emp_like_multimissile.o \
                     src/mods/dta/cloakstop_to_toobigforcarryalls.o \
                     src/mods/reveal_crate_reshroud.o \
+                    src/chat_ignore.o \
+                    src/replays/replays.o \
+                    src/replays/replay_game_patches.o \
