@@ -142,3 +142,6 @@ STRIKEFORCE_OBJS = \
                     src/chat_ignore.o \
                     src/replays/replays.o \
                     src/replays/replay_game_patches.o \
+                    src/mods/dta/unit_self_heal_repair_step.o \
+                    src/mods/smarter_harvesters.o \
+                    src/mods/smarter_firesale.o \
