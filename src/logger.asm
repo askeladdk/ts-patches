@@ -51,6 +51,10 @@ sstring str_DebugLog, "FD.LOG"
 sstring str_DebugLog, "TM.LOG"
 %endif
 
+%ifdef MOD_SF
+sstring str_DebugLog, "SF.LOG"
+%endif
+
 sstring str_a, "a"
 
 sstring str_OK, "OK?\n"

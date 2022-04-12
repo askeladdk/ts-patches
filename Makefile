@@ -105,6 +105,12 @@ NFLAGS += -DMOD_TM
 CFLAGS += -DMOD_TM
 endif
 
+ifdef MOD_SF
+$(info MOD_SF defined)
+NFLAGS += -DMOD_SF
+CFLAGS += -DMOD_SF
+endif
+
 ifdef VINIFERA
 $(info VINIFERA defined)
 NFLAGS += -DVINIFERA
@@ -310,6 +316,16 @@ ifdef MOD_TO
 #OBJS += 
 endif
 
+# SF only sources.
+ifdef MOD_SF
+OBJS += src/ai_target_droppods_like_multimissile.o
+OBJS += src/move_team_group_number.o
+OBJS += src/reveal_crate_reshroud.o
+OBJS += src/scriptaction4.o
+OBJS += src/tiberium_stuff.o
+OBJS += src/team_number_position.o
+OBJS += src/vinifera_unhardcode.o
+endif
 
 # =========================================================
 # These sources will be omitted from Vinifera compatible builds.
@@ -536,7 +552,9 @@ endif
 ifdef MOD_TM
     OBJS += src/tm_hacks.o
 endif
-
+ifdef MOD_SF
+    OBJS += src/sf_hacks.o
+endif
 
 # =========================================================
 # Resources
@@ -568,7 +586,9 @@ endif
 ifdef MOD_TM
     OBJS += res/tm/res.o
 endif
-
+ifdef MOD_SF
+    OBJS += res/sf/res.o
+endif
 
 # =========================================================
 # Build target
@@ -638,4 +658,9 @@ endif
 ifdef MOD_TM
 res/to/res.o: res/tm/res.rc
 	$(WINDRES) $(WINDRES_FLAGS) -Ires/tm/ $< $@
+endif
+
+ifdef MOD_SF
+res/sf/res.o: res/sf/res.rc
+	$(WINDRES) $(WINDRES_FLAGS) -Ires/sf/ $< $@
 endif
